@@ -1,0 +1,101 @@
+{% extends "Base.html" %}
+{% block title %}{{ super() }} Team sign up{% endblock %}
+
+{% block head %} <style> 
+div{
+    margin-left: 20px;
+}
+</style> {% endblock %}
+<!--This is the Team sign up page, which is a descendant of the base template
+By: David Roper 40131739-->
+{% block navbar %}
+
+  <nav class="navbar navbar-default">
+  <div style="background-color: maroon" class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home Page</a></li>
+      <li class ="active"><a href="/Team">Join a Team</a></li>
+      <li><a href="/Tournament">Tournament sign up</a></li>
+      <li><a href="/Contact">Contact</a></li>
+      <li><a href="/Disc">Discussion</a></li>
+        {% if current_user.is_authenticated %}
+                <li><a href="/logout">Logout</a></li>
+        {% else %}
+                <li class><a href="/login">Login</a></li>
+        {% endif %}
+        <li><a href="/register">Register</a></li>
+
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+
+<!-- check if user is authenticated -->
+{% block content %}
+        {% if current_user.is_authenticated %}
+            <script>
+                function check(){
+                         alert("signed")}
+            </script>
+        {% else %}
+              <script>
+                function check(){
+
+                         alert("Need to log in first!")}
+            </script>
+        {% endif %}
+
+    <div>
+    <h1>Welcome to the Team Sign Up Page!</h1>
+    </div>
+
+    <hr>
+
+    <div>
+    <p>This is where you can sign up for each team, here is the list of games you can sign up for!</p>
+    </div>
+
+  <div>
+
+
+    <table border = "1px">
+      <tr> <th>Game</th>
+      <th>Number of players needed</th></tr>
+
+      <tr>
+        <td>Smash Bros</td>
+        <td>1</td>
+           <td><button type="button" onclick="check()">Sign up</button></td>
+      </tr>
+
+      <tr>
+        <td>Overwatch</td>
+        <td>6</td>
+           <td><button type="button" onclick="check()">Sign up</button></td>
+
+      </tr>
+
+      <tr>
+        <td>Dota</td>
+        <td>5</td>
+          <td><button type="button" onclick="check()">Sign up</button></td>
+      </tr>
+
+      <tr>
+          <td>League of Legends</td>
+          <td>5</td>
+          <td><button type="button" onclick="check()">Sign up</button></td>
+      </tr>
+    </table>
+    <Br>
+      <h4>Qualifications:</h4>
+        <ol>
+            <li>Must be a Concordia Student</li>
+            <li>Must be a club member</li>
+            <li>Have fun!</li>
+        </ol>
+  </div>
+{% endblock %}
+
+
+

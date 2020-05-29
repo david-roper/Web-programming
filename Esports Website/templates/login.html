@@ -1,0 +1,47 @@
+{% extends "Base.html" %}
+
+{% block head %}
+    <style>
+        body {
+        text-align: center;
+        }
+        form {
+        display: inline-block;
+        }
+    </style>
+{% endblock %}
+{% block navbar %}
+      <nav class="navbar navbar-default">
+      <div style="background-color: maroon" class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home Page</a></li>
+          <li><a href="{{ url_for('Team') }}">Join a Team</a></li>
+          <li><a href="/Tournament">Tournament sign up</a></li>
+          <li><a href="/Contact">Contact</a></li>
+          <li><a href="/Disc">Discussion</a></li>
+            {% if current_user.is_authenticated %}
+                <li><a href="/logout">Logout</a></li>
+            {% else %}
+                <li class="active"><a href="/login">Login</a></li>
+            {% endif %}
+
+            <li><a href="/register">Register</a></li>
+
+
+        </ul>
+      </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <h1 style="color: black">Login Account</h1>
+    <br>
+    <div>
+    <form action="/login" method="post">
+    {{ form.csrf_token }}
+    {{ form.username.label }} {{ form.username }}<br/>
+    {{ form.password.label }} {{ form.password }}<br/>
+    {{ form.submit }}
+    </form>
+    </div>
+{% endblock %}

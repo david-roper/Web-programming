@@ -1,0 +1,82 @@
+{% extends "Base.html" %}
+
+{% block title %}{{ super() }} Tournament sign up{% endblock %}
+
+<!--This is the Tournaments page, which is a descendant of the base template
+By: David Roper 40131739-->
+
+{% block navbar %}
+  <nav class="navbar navbar-default">
+  <div style="background-color: maroon" class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home Page</a></li>
+      <li><a href="/Team">Join a Team</a></li>
+      <li class ="active"><a href="/Tournament">Tournament sign up</a></li>
+      <li><a href="/Contact">Contact</a></li>
+      <li><a href="/Disc">Discussion</a></li>
+        {% if current_user.is_authenticated %}
+                <li><a href="/logout">Logout</a></li>
+        {% else %}
+                <li class><a href="/login">Login</a></li>
+        {% endif %}
+        <li><a href="/register">Register</a></li>
+
+
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+
+    <h1 style="margin-left: 20px">Welcome to the Tournament sign up page!</h1>
+    <hr>
+
+    <div style="margin-left: 20px">
+        <p>This the the pages where you can choose which tournament you want to play in and
+    the game you will be competing in.</p><br>
+    <script>
+        function tcheck() {
+           var x;
+            var t = 0;
+           for(x = 1;x<4;x++) {
+               var n ="t"+x.toString();
+               var y = document.getElementById(n).checked;
+               if(y == true)t++;
+
+           }
+           if(t>2){
+               alert("Cannot sign up for more than two tournaments!")
+           }
+           else{
+               alert("Signed!")
+           }
+        }
+    </script>
+    <div>
+
+        <p>Here are the lists of tournaments you may sign up for.</p>
+        <table>
+            <tR>
+                <td>Tournament 1</td>
+                <td> <input type="checkbox" id="t1" name="t1" value="t1"><br></td>
+            </tR>
+            <tr>
+                <td>Tournament 2</td>
+                <td> <input type="checkbox" id="t2" name="t2" value="t2"><br></td>
+            </tr>
+           <tr>
+                <td>Tournament 3</td>
+                <td> <input type="checkbox" id="t3" name="t3" value="t3"><br></td>
+           </tr>
+        </table>
+        <bR>
+        <input type="submit" value="Submit" onclick="tcheck()">
+    </div>
+        <br>
+        <h4>Rules:</h4>
+        <p>"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."</p>
+
+    </div>
+
+{% endblock %}

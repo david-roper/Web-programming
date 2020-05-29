@@ -1,0 +1,51 @@
+{% extends "Base.html" %}
+{% block head %}
+    <style>
+        body {
+        text-align: center;
+        }
+        form {
+        display: inline-block;
+        }
+    </style>
+{% endblock %}
+{% block navbar %}
+      <nav class="navbar navbar-default">
+      <div style="background-color: maroon" class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Back to Home Page</a></li>
+          <li><a href="{{ url_for('Team') }}">Join a Team</a></li>
+          <li><a href="/Tournament">Tournament sign up</a></li>
+          <li><a href="/Contact">Contact</a></li>
+          <li><a href="/Disc">Discussion</a></li>
+
+
+        </ul>
+      </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <script>
+        function lemme(){
+            var x = "hi";
+
+
+            document.getElementById("gamename").innerText = x;
+
+
+        }
+    </script>
+    <h1 style="color: black">Add a Winner here</h1>
+    <br>
+    <div>
+    <button onclick="lemme()">hi</button>
+    <form action="/addwinner" method="post">
+    {{ form.csrf_token }}
+    {{ form.gamename.label }} {{ form.gamename }}<br/>
+    {{ form.teamname.label }} {{ form.teamname }}<br/>
+    {{ form.submit }}
+    </form>
+    </div>
+
+{% endblock %}

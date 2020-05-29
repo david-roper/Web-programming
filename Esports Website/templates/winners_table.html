@@ -1,0 +1,57 @@
+{% extends "Base.html" %}{% block navbar %}
+      <nav class="navbar navbar-default">
+      <div style="background-color: maroon" class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Back to Home Page</a></li>
+          <li><a href="{{ url_for('Team') }}">Join a Team</a></li>
+          <li><a href="/Tournament">Tournament sign up</a></li>
+          <li><a href="/Contact">Contact</a></li>
+          <li><a href="/Disc">Discussion</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
+
+        </ul>
+      </div>
+    </nav>
+    {% endblock %}
+    <head><style>
+           table{
+               align: center;
+           } </style></head><body> {% block content %}<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Game</th>
+      <th>Player/Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Smashbros</td>
+      <td>bob</td>
+    </tr>
+    <tr>
+      <td>Overwatch</td>
+      <td>TeamO</td>
+    </tr>
+    <tr>
+      <td>LeagueOfLegends</td>
+      <td>TeamL</td>
+    </tr>
+    <tr>
+      <td>Dota2</td>
+      <td>TeamD</td>
+    </tr>
+    <tr>
+      <td>Video game</td>
+      <td>david</td>
+    </tr>
+    <tr>
+      <td>david</td>
+      <td>david</td>
+    </tr>
+    <tr>
+      <td>david</td>
+      <td>roper</td>
+    </tr>
+  </tbody>
+</table></body> {% endblock %}

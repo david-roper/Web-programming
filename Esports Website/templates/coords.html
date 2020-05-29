@@ -1,0 +1,22 @@
+{% extends "Base.html" %}{% block navbar %}
+      <nav class="navbar navbar-default">
+      <div style="background-color: maroon" class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li><a href="/">Home Page</a></li>
+          <li><a href="{{ url_for('Team') }}">Join a Team</a></li>
+          <li><a href="/Tournament">Tournament sign up</a></li>
+          <li class="active"><a href="/Contact">Back to contact page</a></li>
+        {% if current_user.is_authenticated %}
+                <li><a href="/logout">Logout</a></li>
+        {% else %}
+                <li class><a href="/login">Login</a></li>
+        {% endif %}
+        <li><a href="/register">Register</a></li>
+
+        </ul>
+      </div>
+    </nav>
+    {% endblock %}
+    <head></head><body> {% block content %}<h2>List of Coordinators</h2><ul><li><a href =mailto:abc@gmail.com>David: david@gmail.com
+</a></li><li><a href =mailto:abc@gmail.com>Jeff: jeff@hotmail.com
+</a></li><li><a href =mailto:abc@gmail.com>Jim: jim@mail.com</a></li></ul>{% endblock %}

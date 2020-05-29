@@ -1,0 +1,51 @@
+<!--Base template for assignment 2
+ By David Roper 40131739-->
+
+<!--This is the base template which contains jinja inheritance blocks-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--Bootstrap for navigation bar -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>Assignment 2 {% block title %}{%  endblock %}</title>
+  {% block head %}{% endblock %}
+  <style>
+      body{
+          background-color: white;
+      }
+  </style>
+</head>
+<body>
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+      <div style="background-color: maroon" class="container-fluid">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="/">Back to Home Page</a></li>
+          <li><a href="{{ url_for('Team') }}">Join a Team</a></li>
+          <li><a href="/Tournament">Tournament sign up</a></li>
+          <li><a href="/Contact">Contact</a></li>
+          <li><a href="/Disc">Discussion</a></li>
+
+
+        </ul>
+      </div>
+    </nav>
+{% endblock %}
+
+
+
+{% block content %}
+    <p>hello</p>
+
+{% endblock %}
+
+{% block content2 %}
+    <p>hello2!</p>
+{% endblock %}
+</body>
+</html>

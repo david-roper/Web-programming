@@ -1,0 +1,83 @@
+{% extends "Base.html" %}
+{% block head%}{{ super() }}
+
+<style>
+div{
+    margin-left: 20px;
+
+}
+p{
+    margin-left: 20px;
+}
+
+
+</style>
+{% endblock %}
+{% block title %}{{ super() }} Discussion{% endblock %}
+<!--This is the discussion page, which is a descendant of the base template
+By: David Roper 40131739-->
+{% block navbar %}
+
+  <nav class="navbar navbar-default">
+  <div style="background-color: maroon" class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home Page</a></li>
+      <li><a href="/Team">Join a Team</a></li>
+      <li><a href="/Tournament">Tournament sign up</a></li>
+      <li><a href="/Contact">Contact</a></li>
+      <li class="active"><a href="/Disc">Discussion</a></li>
+        {% if current_user.is_authenticated %}
+                <li><a href="/logout">Logout</a></li>
+        {% else %}
+                <li class><a href="/login">Login</a></li>
+        {% endif %}
+        <li><a href="/register">Register</a></li>
+
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+{% block content %}
+    <div>
+    <h1>Discussion</h1>
+        <hR>
+    </div>
+    <p id="p1">Click these links below to join club social media and chatrooms!</p>
+
+    <div style="margin-left: 10px;margin-top: 10px">
+    <a href="https://www.facebook.com"><img src="../static/Facebook_icon.jpg" alt ="Facebook" height="40px" width="40px"></a>
+    </div>
+    <br>
+    <div style="margin-left: 10px;">
+    <a href ="https://discordapp.com/"><img src ="../static/152px-Discord_color_D.svg.png" alt = "Discord" height="40px" width="40px" ></a>
+    </div>
+    <div style="margin-left: 10px; margin-top: 10px">
+    <a href ="https://www.skype.com/en/"><img src ="../static/skype2.png" alt = "Discord" height="40px" width="40px" ></a>
+    </div>
+    <div>
+    <h3>General Discussion:</h3>
+    </div>
+    <div>
+    <script>
+        function WriteP() {
+        var x = document.createElement("P");
+        var t = document.createTextNode(document.getElementById("myText").value);
+        x.appendChild(t);
+        var h = document.createElement("Hr")
+        document.body.append(h)
+        document.body.appendChild(x);
+}
+    </script>
+     {% if current_user.is_authenticated %}
+    <form>
+        <textarea id="myText" name="comment" rows="5" cols="50"></textarea>
+        <br>
+        <br>
+        <button type="button" onclick="WriteP()">Comment</button>
+    </form>
+    {% else %}
+        <p>You need to sign in First before being able to join the discussion</p>
+    {% endif %}
+    </div>
+
+{% endblock %}

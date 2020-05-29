@@ -1,0 +1,71 @@
+{% extends "Base.html" %}
+{% block head%}{{ super() }}
+    <!--This is the Contact page where club member can sign up for, which is a descendant of the base template
+    By: David Roper 40131739-->
+<style>
+    table, th ,td{
+        border-collapse: collapse;
+        text-align: center;
+
+    }
+    div{
+    margin-left: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block title %}Contacts{% endblock %}
+
+
+{% block navbar %}
+
+  <nav class="navbar navbar-default">
+  <div style="background-color: maroon" class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li><a href="/">Home Page</a></li>
+      <li><a href="{{ url_for('Team') }}">Join a Team</a></li>
+      <li><a href="{{ url_for('Tournament') }}">Tournament sign up</a></li>
+      <li class ="active"><a href="{{ url_for('Contact') }}">Contact</a></li>
+      <li><a href="{{ url_for('Disc') }}">Discussion</a></li>
+        {% if current_user.is_authenticated %}
+                <li><a href="/logout">Logout</a></li>
+        {% else %}
+                <li class><a href="/login">Login</a></li>
+        {% endif %}
+      <li><a href="/register">Register</a></li>
+    </ul>
+  </div>
+</nav>
+{% endblock %}
+
+{% block content %}
+    <div>
+    <h1>Contacts</h1>
+    </div>
+    <hr>
+    <div>
+    <p>Down here is the list of contacts for club coordinators, the links will allow you to instantly email them about any problems.</p>
+    </div>
+    <div>
+
+        <table border="1px">
+            <tr><td>Club Coordinator</td>
+                <td>David</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><a href ="mailto:abc@gmail.com">abc@gmail.com</a></td>
+
+            </tr>
+
+        </table>
+        <p><a href="/coords">Click here for more cooridinators</a></p>
+
+    </div>
+{% endblock %}
+
+
+
+
+
+
